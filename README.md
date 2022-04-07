@@ -3,4 +3,4 @@
 
 ## erd
 
-![image](https://user-images.githubusercontent.com/42057185/161576110-acfe7e8a-cc42-4c14-aa5f-abb7dff3c817.png)
+![image](https://user-images.githubusercontent.com/42057185/162239618-332049d1-e28d-47bb-bdf4-8cd1200e7dea.png)
