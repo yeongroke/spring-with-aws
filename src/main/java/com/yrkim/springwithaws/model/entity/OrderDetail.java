@@ -1,9 +1,7 @@
 package com.yrkim.springwithaws.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
+import com.yrkim.springwithaws.common.model.entity.BaseTime;
+import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.data.domain.Persistable;
@@ -12,12 +10,13 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "orderdetail")
+@Getter
 @EqualsAndHashCode(of = "id")
 @DynamicUpdate
 @DynamicInsert
-@NoArgsConstructor
-@AllArgsConstructor
-@SuperBuilder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
 public class OrderDetail extends BaseTime implements Persistable<Long> {
     @Id
     @Column(name = "id")
@@ -39,6 +38,12 @@ public class OrderDetail extends BaseTime implements Persistable<Long> {
             referencedColumnName = "id",
             nullable = false)
     private OrderMaster orderMaster;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "orderitem_id",
+            referencedColumnName = "id",
+            nullable = false)
+    private OrderItem orderItem;
 
     @Override
     public Long getId() {

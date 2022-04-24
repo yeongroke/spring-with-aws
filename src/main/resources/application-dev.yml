@@ -6,7 +6,7 @@ spring:
     password: test1234
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
       jdbc:
         time_zone: Asia/Seoul
     show-sql: true
@@ -14,11 +14,21 @@ spring:
       hibernate:
         format_sql: true
         use_sql_comments: true
-        physical_naming_strategy: com.yrkim.springwithaws.tools.hibernate.HibernatePhysicalNamingStrategy
+        physical_naming_strategy: com.yrkim.springwithaws.common.tools.hibernate.HibernatePhysicalNamingStrategy
     generate-ddl: true
   messages:
     basename: message
     encoding: UTF-8
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 646201964694-vfk100pc87rtu2i0j69m2ili9lj9n011.apps.googleusercontent.com
+            client-secret: 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
+            scope: profile,email
+  profiles:
+    include: oauth
 
 
 logging:
@@ -52,5 +62,8 @@ server:
     context-path: /
   port: 9000
 
-yrkim:
-  secret_key: jwtAuthenticationJwtSecretKeyYrkimApi
+
+jwt:
+  header: Authorization
+  #hello-backend-developer-i-am-yeongroke-jobis-spring-boot-web-project-security-jwt-secret
+  secret: aGVsbG8tYmFja2VuZC1kZXZlbG9wZXItaS1hbS15ZW9uZ3Jva2Utam9iaXMtc3ByaW5nLWJvb3Qtd2ViLXByb2plY3Qtc2VjdXJpdHktand0LXNlY3JldA==

@@ -3,10 +3,10 @@ package com.yrkim.springwithaws;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class SpringWithAwsApplicationTests {
 
-	@Test
+	//@Test
 	void contextLoads() {
 	}
 

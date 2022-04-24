@@ -1,10 +1,9 @@
 package com.yrkim.springwithaws.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
+import com.yrkim.springwithaws.auth.model.entity.User;
+import com.yrkim.springwithaws.common.model.entity.BaseTime;
+import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.data.domain.Persistable;
@@ -15,12 +14,13 @@ import java.util.Collection;
 
 @Entity
 @Table(name = "ordermaster")
+@Getter
 @EqualsAndHashCode(of = "id")
 @DynamicUpdate
 @DynamicInsert
-@NoArgsConstructor
-@AllArgsConstructor
-@SuperBuilder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder
 public class OrderMaster extends BaseTime implements Persistable<Long> {
     @Id
     @Column(name = "id")
