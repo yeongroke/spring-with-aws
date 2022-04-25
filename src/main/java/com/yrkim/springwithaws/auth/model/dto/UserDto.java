@@ -20,8 +20,11 @@ public class UserDto extends BaseTimeDto {
     @Schema(name = "id", description = "회원번호", example = "1")
     private Long id;
     @NotNull
-    @Schema(name = "username", description = "유저 이름", example = "김아무개")
-    private String username;
+    @Schema(name = "userId", description = "유저 이름", example = "김아무개")
+    private String userId;
+    @NotNull
+    @Schema(name = "userName", description = "유저 이름", example = "김아무개")
+    private String userName;
     @NotNull
     @Schema(name = "password", description = "패스워드", example = "아무개?")
     private String password;
@@ -34,7 +37,7 @@ public class UserDto extends BaseTimeDto {
 
     public UserDto(User user) {
         this.id = user.getId();
-        this.username = user.getUserName();
+        this.userName = user.getUserName();
         this.password = user.getPassword();
         this.email = user.getEmail();
         this.role = user.getRole();
@@ -43,7 +46,7 @@ public class UserDto extends BaseTimeDto {
     public User toEntity() {
         return User.builder()
                 .id(this.id)
-                .userName(this.username)
+                .userName(this.userName)
                 .password(this.password)
                 .email(this.email)
                 .role(this.role)
