@@ -19,8 +19,6 @@ spring:
   messages:
     basename: message
     encoding: UTF-8
-  profiles:
-    include: oauth
 
 
 logging:
@@ -54,5 +52,7 @@ server:
     context-path: /
   port: 9000
 
-yrkim:
-  secret_key: jwtAuthenticationJwtSecretKeyYrkimApi
+jwt:
+  header: Authorization
+  #hello-backend-developer-i-am-yeongroke-jobis-spring-boot-web-project-security-jwt-secret
+  secret: aGVsbG8tYmFja2VuZC1kZXZlbG9wZXItaS1hbS15ZW9uZ3Jva2Utam9iaXMtc3ByaW5nLWJvb3Qtd2ViLXByb2plY3Qtc2VjdXJpdHktand0LXNlY3JldA==

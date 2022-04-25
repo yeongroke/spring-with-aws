@@ -19,17 +19,6 @@ spring:
   messages:
     basename: message
     encoding: UTF-8
-  security:
-    oauth2:
-      client:
-        registration:
-          google:
-            client-id: 646201964694-vfk100pc87rtu2i0j69m2ili9lj9n011.apps.googleusercontent.com
-            client-secret: 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
-            scope: profile,email
-  profiles:
-    include: oauth
-
 
 logging:
   level:
