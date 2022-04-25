@@ -9,6 +9,8 @@ import java.util.List;
 
 /**
 * 역할 : MapStruct 공통 정의
+* @param <D> Dto
+* @param <E> Entity
 * */
 public interface EntityMapper<D, E> {
     E toEntity(D dto);
