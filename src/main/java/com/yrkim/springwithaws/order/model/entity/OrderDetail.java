@@ -1,4 +1,4 @@
-package com.yrkim.springwithaws.model.entity;
+package com.yrkim.springwithaws.order.model.entity;
 
 import com.yrkim.springwithaws.common.model.entity.BaseTime;
 import lombok.*;

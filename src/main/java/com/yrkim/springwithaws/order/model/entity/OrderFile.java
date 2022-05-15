@@ -1,7 +1,5 @@
-package com.yrkim.springwithaws.model.entity;
+package com.yrkim.springwithaws.order.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.yrkim.springwithaws.auth.model.entity.User;
 import com.yrkim.springwithaws.common.model.entity.BaseTime;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
@@ -9,12 +7,9 @@ import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.data.domain.Persistable;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collection;
 
 @Entity
-@Table(name = "orderitem")
+@Table(name = "orderfile")
 @Getter
 @EqualsAndHashCode(of = "id")
 @DynamicUpdate
@@ -22,50 +17,46 @@ import java.util.Collection;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
-public class OrderItem extends BaseTime implements Persistable<Long> {
+public class OrderFile extends BaseTime implements Persistable<Long> {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "item_name",
+    @Column(name = "origin_file_name",
             nullable = false,
             updatable = false)
-    private String itemName;
+    private String originFileName;
 
-    @Column(name = "sell_price",
+    @Column(name = "remote_file_name",
             nullable = false,
             updatable = false)
-    private Long sellPrice;
+    private String remoteFileName;
 
-    @Column(name = "sell_count",
+    @Column(name = "filePath",
             nullable = false,
             updatable = false)
-    private Long sellCount;
+    private String filePath;
 
-    @Column(name = "sell_startts",
+    @Column(name = "content_type",
             nullable = false,
             updatable = false)
-    private LocalDateTime sellStartTs;
+    private String contentType;
 
-    @Column(name = "sell_endts",
+    @Column(name = "original_file_extension",
             nullable = false,
             updatable = false)
-    private LocalDateTime sellEndTs;
+    private String originalFileExtension;
+
+    @Column(name = "file_Size",
+            nullable = false,
+            updatable = false)
+    private Long fileSize;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id",
+    @JoinColumn(name = "orderitem_id",
             referencedColumnName = "id",
             nullable = false)
-    private User user;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Collection<OrderDetail> orderDetail = new ArrayList<>();
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Collection<OrderFile> orderFiles = new ArrayList<>();
+    private OrderItem orderItem;
 
     @Override
     public Long getId() {
