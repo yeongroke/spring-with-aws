@@ -10,16 +10,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class CommonResponseService {
 
-    public <T> SingleResult<T> getSingleResult(T data) {
+    public <T> SingleResult<T> getSingleResult(T data, String msg) {
         SingleResult<T> result = new SingleResult<>();
-        result.setResult(data);
+        result.setData(data);
+        result.setMessage(msg);
         setSuccessResult(result);
         return result;
     }
 
-    public <T> ListResult<T> getListResult(Page<T> pageObj) {
+    public <T> ListResult<T> getListResult(Page<T> pageObj, String msg) {
         ListResult<T> result = new ListResult<>();
-        result.setListData(pageObj.getContent());
+        result.setData(pageObj.getContent());
+        result.setMessage(msg);
         result.setTotalElements(pageObj.getTotalElements());
         result.setTotalPages(pageObj.getTotalPages());
         result.setNowPage(pageObj.getNumber() + 1);
@@ -30,20 +32,17 @@ public class CommonResponseService {
 
     public CommonResult getSuccessResult() {
         CommonResult result = new CommonResult();
-        result.setCode(200);
-        result.setMsg("success");
+        result.setStatus(200);
         return result;
     }
 
-    public CommonResult getFailResult(int code, String msg) {
+    public CommonResult getFailResult(int code) {
         CommonResult result = new CommonResult();
-        result.setCode(code);
-        result.setMsg(msg);
+        result.setStatus(code);
         return result;
     }
 
     private void setSuccessResult(CommonResult result) {
-        result.setCode(CommonResponse.SUCCESS.getCode());
-        result.setMsg(CommonResponse.SUCCESS.getMessage());
+        result.setStatus(CommonResponse.SUCCESS.getCode());
     }
 }

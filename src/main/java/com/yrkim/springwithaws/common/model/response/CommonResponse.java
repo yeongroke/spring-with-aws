@@ -2,7 +2,9 @@ package com.yrkim.springwithaws.common.model.response;
 
 public enum CommonResponse {
 
-    SUCCESS(200 , "success");
+    SUCCESS(200 , "success"),
+    SIGNIN(200 ,"로그인")
+    ,SIGNUP(200 ,"회원가입");
 
     int code;
     String message;

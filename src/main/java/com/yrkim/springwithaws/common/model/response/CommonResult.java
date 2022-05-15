@@ -1,13 +1,12 @@
 package com.yrkim.springwithaws.common.model.response;
 
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-public class CommonResult {
+public class CommonResult<T> {
 
-    @ApiModelProperty(value = "응답 코드 번호")
-    private int code;
-    @ApiModelProperty(value = "응답 메시지")
-    private String msg;
+    @Schema(name = "응답 상태")
+    private T status;
 }
