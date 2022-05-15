@@ -20,6 +20,10 @@ spring:
     basename: message
     encoding: UTF-8
 
+config:
+  downloadImage: http://rokidev.com:10082
+  uploadImage: http://rokidev.com:10082
+
 logging:
   level:
     org.hibernate.SQL: info
@@ -28,10 +32,6 @@ logging:
     org.apache.tomcat: info
     com.yrkim.springsecurity: debug
     org.springframework.transaction: trace  # 트랜젝션 로그 활성화
-
-config:
-  downloadImage: http://rokidev.com:10082
-  uploadImage: http://rokidev.com:10082
 
 server:
   compression:
