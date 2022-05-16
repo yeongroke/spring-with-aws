@@ -2,8 +2,8 @@ package com.yrkim.springwithaws.auth.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.yrkim.springwithaws.common.model.entity.BaseTime;
-import com.yrkim.springwithaws.model.entity.OrderItem;
-import com.yrkim.springwithaws.model.entity.OrderMaster;
+import com.yrkim.springwithaws.order.model.entity.OrderItem;
+import com.yrkim.springwithaws.order.model.entity.OrderMaster;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;

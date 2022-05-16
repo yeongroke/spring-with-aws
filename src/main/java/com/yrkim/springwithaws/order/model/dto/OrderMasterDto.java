@@ -1,8 +1,8 @@
-package com.yrkim.springwithaws.model.dto;
+package com.yrkim.springwithaws.order.model.dto;
 
 import com.yrkim.springwithaws.auth.model.dto.UserDto;
 import com.yrkim.springwithaws.common.model.dto.BaseTimeDto;
-import com.yrkim.springwithaws.model.entity.OrderMaster;
+import com.yrkim.springwithaws.order.model.entity.OrderMaster;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
